@@ -12,3 +12,7 @@ The project is a work in progress so some things may not work 100%.
 License
 -
 All code is licensed under the Apache 2.0 license and all documentation, pictures schematics, etc are licensed under the Creative Commons 2.0 BY-SA license unless otherwise noted.
+
+Building
+-
+This project is built using ino (https://github.com/amperka/ino).  It may or may not build correctly under the Arduino IDE / Stino / others.
