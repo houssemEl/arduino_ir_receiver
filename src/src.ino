@@ -13,6 +13,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+/*
+  See http://www.righto.com/2010/12/64-bit-rc6-codes-arduino-and-xbox.html
+  and http://www.righto.com/2009/08/multi-protocol-infrared-remote-library.html
+  For details on how to use the IRremote library
+*/
+
 #include <IRremote.h>
 
 #include "RemoteWinMediaCenterSE.h"
