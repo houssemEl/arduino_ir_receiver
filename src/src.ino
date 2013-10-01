@@ -34,7 +34,7 @@ IRrecv irrecv(PIN_IR_RECV);
 decode_results ir_results;
 
 // Implemented in the specific remote header file
-void translate_ir(unsigned long code);
+void translate_ir(unsigned long long code);
 
 void setup() {
 	#if defined(DEBUG) && DEBUG == true
@@ -52,7 +52,10 @@ void loop() {
 	if (irrecv.decode(&ir_results)) {
 		translate_ir(ir_results.value);
 		#if defined(DEBUG) && DEBUG == true
-			Serial.println(ir_results.value, HEX);
+			unsigned long top = ir_results.value >> 32;
+			unsigned long bottom = ir_results.value;
+			Serial.print(top, HEX);
+			Serial.println(bottom, HEX);
 			Serial.println("----------------");
 		#endif
 		delay(IR_DELAY_MS);
