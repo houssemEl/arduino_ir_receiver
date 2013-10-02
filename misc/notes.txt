@@ -1,70 +1,62 @@
 New Device -> Computer -> Media Center PC
 Manufacturer: Microsoft
-Model: Windows Media Center SE
+Model: Windows Media Center
 
 Ignore the warning and click "Next"
 
 Setup buttons (Mappings are for Harmony 650)
 Devices -> Settings -> Customize Buttons -> Next
 
-UpArrow - Aspect - D19D2C28 - Z
-Menu - Media - 27CFDF92 - C
-Info - Info - BD282D36 - I
-Exit - Ctrl+Z - C315F508 - Esc
-Guide - Guide - CE9D2771 - Tab
-Red - Red - 169C912C - \ (Fullscreen/Window)
-Green - Green - 53F88070 - M (OSD)
-Yellow - Yellow - FBB85526 - O (Codec Info)
-Blue - Blue - C6A7A8A7 - W (Watched/Unwatched)
-Up - DirectionUp - A36FD29F - Up
-Down - DirectionDown - E696EE - Down
-Left - DirectionLeft - 634A7668 - Left
-Right - DirectionRight - 8E1449A9 - Right
-OK - OK - EC9BC835 - Enter
-Volume Up - VolumeUp - Unknown IR Code
-Volumn Down - VolumeDown - Unknown IR Code
-Channel Up - ChannelUp - 92BD3BC9 - [
-Channel Down - ChannelDown - 7B3D44CC - ]
-Mute - Mute - Unknown IR Code
-Prev - Ctrl+Shift+Tab - 88804B2B - Backspace
-Play - Play - E20C15A3 - Space
-Pause - Pause - A8FFA988 - Space
-Fast Forward - FastForward - 1EF2C5C6 - F
-Skip Forward - Skip - A38ADFDF - .
-Skip Back - Replay - 8E0AEC08 - ,
-Rewind - Rewind - 6A8BC852 - R
-Record - Record - E10C140E - B
-Stop - Stop - 14924D85 - X
-1 - 1 - F6A075A7 - 1
-2 - 2 - 2C14BC67 - 2
-3 - 3 - CE9DF816 - 3
-4 - 4 - A98524DC - 4
-5 - 5 - 314E8E10 - 5
-6 - 6 - EED10E23 - 6
-7 - 7 - 8F5A46AA - 7
-8 - 8 - 9610F80C - 8
-9 - 9 - D6693D25 - 9
-Plus - # - 8F37704C - # 
-0 - 0 - E42869D6 - 0
-E - Enter - C4E6B502 - Enter
+UpArrow - Aspect - 00000000 - Z
+Menu - Menu - 00000000 - C
+Info - Info - 00000000 - I
+Exit - Exit - 00000000 - Esc
+Guide - Guide - 00000000 - Tab
+Red - Live - 00000000 - \ (Fullscreen/Window)
+Green - Pictures - 00000000 - M (OSD)
+Yellow - RecordedTV - 00000000 - O (Codec Info)
+Blue - Music - 00000000 - W (Watched/Unwatched)
+Up - DirectionUp - 00000000 - Up
+Down - DirectionDown - 00000000 - Down
+Left - DirectionLeft - 00000000 - Left
+Right - DirectionRight - 00000000 - Right
+OK - OK - 00000000 - Enter
+Channel Up - ChannelUp - 00000000 - [
+Channel Down - ChannelDown - 00000000 - ]
+Prev - ChannelPrev - 00000000 - Backspace
+Play - Play - 00000000 - Space
+Pause - Pause - 00000000 - Space
+Fast Forward - FastForward - 00000000 - F
+Skip Forward - Skip - 00000000 - .
+Skip Back - Replay - 00000000 - ,
+Rewind - Rewind - 00000000 - R
+Record - Record - 00000000 - B
+Stop - Stop - 00000000 - X
+1 - 1 - 00000000 - 1
+2 - 2 - 00000000 - 2
+3 - 3 - 00000000 - 3
+4 - 4 - 00000000 - 4
+5 - 5 - 00000000 - 5
+6 - 6 - 00000000 - 6
+7 - 7 - 00000000 - 7
+8 - 8 - 00000000 - 8
+9 - 9 - 00000000 - 9
+Plus - # - 00000000 - # 
+0 - 0 - 00000000 - 0
+E - Enter - 00000000 - Enter
 
 Additional Buttons
 Delete all entries
 Add
-Switch User - Alt+Tab - 826F1729 - S
-Log Off - Alt+F4 - 511B4D0D - S
-Subtitles - Subtitle - 449BE55C - T
-Cycle Subs - Teletext - AA030263 - L
+Switch User - Movies - 00000000 - S
+Log Off - Audio - 00000000 - S
+Subtitles - Subtitle - 00000000 - T
+Cycle Subs - Videos - 00000000 - L
 
-Movies - Movies - 91B6774A - N/A
-TV Shows - TV - 7BBBDE45 - N/A
-Live TV - LiveTV - C0B12592 - N/A
-Recorded TV - RecordedTV - 5F21D76A - K
+OSD - Back - 00000000 - M
+Codec Info - * - 00000000 - O
 
-
-Music - Music - 7EBBE2FC - N/A
-Music Videos - Videos - 6CB3F2E7 - N/A
-Pictures - Pictures - FF4FFC1B - N/A
-
-OSD - Alt+1 - AA2B6903 - M
-Codec Info - Alt+2 - BAF8B8B9 - O
+Power Off - PowerOff - 00000000 - 
+Power On - PowerOn - 00000000 - 
+Power Toggle - PowerToggle - 00000000 - 
+XBMC - MediaCenter - 00000000 - 
