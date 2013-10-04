@@ -1,8 +1,14 @@
 New Device -> Computer -> Media Center PC
 Manufacturer: Microsoft
-Model: Windows Media Center
+Model: Media Center PC
 
 Ignore the warning and click "Next"
+
+Setup delays
+Devices -> Settings -> Adjust the delays (speed settings) -> Next
+Inter-key Delay: 300
+Input Delay: 1000
+
 
 Setup buttons (Mappings are for Harmony 650)
 Devices -> Settings -> Customize Buttons -> Next
@@ -23,7 +29,7 @@ Right - DirectionRight - 00000000 - Right
 OK - OK - 00000000 - Enter
 Channel Up - ChannelUp - 00000000 - [
 Channel Down - ChannelDown - 00000000 - ]
-Prev - ChannelPrev - 00000000 - Backspace
+Prev - Back - 00000000 - Backspace
 Play - Play - 00000000 - Space
 Pause - Pause - 00000000 - Space
 Fast Forward - FastForward - 00000000 - F
@@ -41,19 +47,19 @@ Stop - Stop - 00000000 - X
 7 - 7 - 00000000 - 7
 8 - 8 - 00000000 - 8
 9 - 9 - 00000000 - 9
-Plus - # - 00000000 - # 
+Plus - Clear - 00000000 - # 
 0 - 0 - 00000000 - 0
 E - Enter - 00000000 - Enter
 
 Additional Buttons
 Delete all entries
 Add
-Switch User - Movies - 00000000 - S
+Switch User - Radio - 00000000 - S
 Log Off - Audio - 00000000 - S
 Subtitles - Subtitle - 00000000 - T
 Cycle Subs - Videos - 00000000 - L
 
-OSD - Back - 00000000 - M
+OSD - ChannelPrev - 00000000 - M
 Codec Info - * - 00000000 - O
 
 Power Off - PowerOff - 00000000 - 
