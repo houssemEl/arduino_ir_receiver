@@ -1,6 +1,3 @@
-[submodule "lib/IRremote"]
-	path = lib/IRremote
-	url = https://github.com/shirriff/Arduino-IRremote.git
 [submodule "lib/IRLib"]
 	path = lib/IRLib
 	url = https://github.com/cyborg5/IRLib/
