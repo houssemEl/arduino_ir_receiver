@@ -13,45 +13,51 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+#define DEBUG       true
+
 #include <IRLib.h>
+
+#if defined(DEBUG) && DEBUG == true
+#include <IRLibTimer.h>
+#endif
 
 #include "HauppaugeWinTV32.h"
 
-#define DEBUG       true
-
-#define PIN_LED     6
+#define PIN_LED     13
 #define PIN_IR_RECV 9
 
-#define IR_REPEAT_DELAY_MS 250
+#define IR_REPEAT_DELAY_MS 300
 
 IRrecv IRReceiver(PIN_IR_RECV);
 IRdecode IRDecoder;
 unsigned int Buffer[RAWBUF];
 
 // Implemented in the specific remote header file
-void translate_ir(unsigned long long code);
+void translate_ir(uint16_t ir_code);
 
 void setup() {
 	#if defined(DEBUG) && DEBUG == true
 		Serial.begin(57600);
+		while (!Serial);
 	#endif
 
-	pinMode(PIN_LED, OUTPUT);
-
-	My_Receiver.enableIRIn(); // Start the receiver
+	IRReceiver.enableIRIn(); // Start the receiver
+	IRReceiver.blink13(true);
 	IRDecoder.UseExtnBuf(Buffer);
 
 	Keyboard.begin();
+	
+	#if defined(DEBUG) && DEBUG == true
+		Serial.print("Blink LED Value: ");
+	#endif
+	Serial.println(BLINKLED);
 }
 
 void loop() {
 	if (IRReceiver.GetResults(&IRDecoder)) {
-		//Restart the receiver so it can be capturing another code
-		//while we are working on decoding this one.
-		IRReceiver.resume(); 
+		delay(IR_REPEAT_DELAY_MS); // Make sure we don't get excess codes thanks to the Logitech Harmony sending groups of 3 for most protocols
+		IRReceiver.resume();
 		IRDecoder.decode();
-		IRDecoder.DumpResults();
+		translate_ir(IRDecoder.value);
 	}
-
-	delay(IR_REPEAT_DELAY_MS);
 }
