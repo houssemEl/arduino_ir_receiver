@@ -14,19 +14,17 @@ limitations under the License.
 */
 
 #define DEBUG       true
+#define PIN_LED     12
+#define CORE_LED0_PIN 12
+#define PIN_IR_RECV 9
+#define IR_REPEAT_DELAY_MS 300
 
 #include <IRLib.h>
-
 #if defined(DEBUG) && DEBUG == true
 #include <IRLibTimer.h>
 #endif
 
 #include "HauppaugeWinTV32.h"
-
-#define PIN_LED     13
-#define PIN_IR_RECV 9
-
-#define IR_REPEAT_DELAY_MS 300
 
 IRrecv IRReceiver(PIN_IR_RECV);
 IRdecode IRDecoder;
