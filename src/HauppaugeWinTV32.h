@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#define DEBUG true
+#define DEBUG false
 
 #if defined(ARDUINO) && ARDUINO >= 100
 	#include "Arduino.h"
@@ -28,7 +28,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("C");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(67);
+		Keyboard.write(99);
 	}
 	// Info - Info - 1F8A / 178A - I - 73
 	else if (ir_code == 0x1F8A || ir_code == 0x178A) {
@@ -36,7 +36,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("I");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(73);
+		Keyboard.write(105);
 	}
 	// Exit - Exit - 1F9F / 179F - Esc - KEY_ESC
 	else if (ir_code == 0x1F9F || ir_code == 0x179F) {
@@ -68,7 +68,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("M");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(77);
+		Keyboard.write(109);
 	}
 	// Yellow - Yellow - 1FB8 / 17B8 - O (Codec Info) - 81
 	else if (ir_code == 0x1FB8 || ir_code == 0x17B8) {
@@ -76,7 +76,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("O");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(81);
+		Keyboard.write(111);
 	}
 	// Blue - Blue - 1FA9 / 17A9 - W (Watched/Unwatched) - 87
 	else if (ir_code == 0x1FA9 || ir_code == 0x17A9) {
@@ -84,7 +84,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("W");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(87);
+		Keyboard.write(119);
 	}
 	// Up - DirectionUp - 1F94 / 1794 - Up - KEY_UP_ARROW
 	else if (ir_code == 0x1F94 || ir_code == 0x1794) {
@@ -196,7 +196,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("F");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(70);
+		Keyboard.write(102);
 	}
 	// Skip Forward - Advance - 1F9E / 179E - . - 46
 	else if (ir_code == 0x1F9E || ir_code == 0x179E) {
@@ -220,7 +220,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("R");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(82);
+		Keyboard.write(114);
 	}
 	// Record - Record - 1FB7 / 17B7 - B - 66
 	else if (ir_code == 0x1FB7 || ir_code == 0x17B7) {
@@ -228,7 +228,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("B");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(66);
+		Keyboard.write(98);
 	}
 	// Stop - Stop - 1FB6 / 17B6 - X - 88
 	else if (ir_code == 0x1FB6 || ir_code == 0x17B6) {
@@ -236,7 +236,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("X");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(88);
+		Keyboard.write(120);
 	}
 	// 1 - 1 - 1F81 / 1781 - 1 - 49
 	else if (ir_code == 0x1F81 || ir_code == 0x1781) {
@@ -325,7 +325,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("S");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(83);
+		Keyboard.write(115);
 	}
 	// Log Off - InputVideos - 1F98 / 1798 - S - 83
 	else if (ir_code == 0x1F98 || ir_code == 0x1798) {
@@ -333,7 +333,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("S");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(83);
+		Keyboard.write(115);
 	}
 	// Subtitles - InputMusic - 1F99 / 1799 - T - 84
 	else if (ir_code == 0x1F99 || ir_code == 0x1799) {
@@ -341,7 +341,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("T");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(84);
+		Keyboard.write(116);
 	}
 	// Cycle Subs - InputPictures - 1F9A / 179A - L - 76
 	else if (ir_code == 0x1F9A || ir_code == 0x179A) {
@@ -349,7 +349,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("L");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(76);
+		Keyboard.write(108);
 	}
 
 	// OSD - InputRadio - 1F8C / 178C - M - 77
@@ -358,7 +358,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("M");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(77);
+		Keyboard.write(109);
 	}
 	// Codec Info - NumberEnter - 1F8E / 178E - O - 79
 	else if (ir_code == 0x1F8E || ir_code == 0x178E) {
@@ -366,7 +366,7 @@ void translate_ir(uint16_t ir_code) {
 			Serial.println("O");
 			Serial.println("----------------");
 		#endif
-		Keyboard.write(79);
+		Keyboard.write(111);
 	}
 	// Power Toggle - PowerToggle - 1FBD / 17BD - N/A
 	else if (ir_code == 0x1FBD || ir_code == 0x17BD) {

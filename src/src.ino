@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-#define DEBUG       true
+#define DEBUG       false
 #define PIN_LED     12
 #define CORE_LED0_PIN 12
 #define PIN_IR_RECV 9
