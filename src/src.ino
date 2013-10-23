@@ -13,11 +13,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+#include <SPI.h>
+#include <mcp4xxx.h>
+
 #define DEBUG       false
 #define PIN_LED     12
+#define PIN_POT_POWER 11
+#define PIN_POT_BLINK 10
 #define CORE_LED0_PIN 12
 #define PIN_IR_RECV 9
 #define IR_REPEAT_DELAY_MS 300
+
+icecave::arduino::MCP4XXX* pot_power;
+icecave::arduino::MCP4XXX* pot_blink;
 
 #include <IRLib.h>
 #if defined(DEBUG) && DEBUG == true
@@ -39,6 +47,9 @@ void setup() {
 		while (!Serial);
 	#endif
 
+	pot_blink = new icecave::arduino::MCP4XXX(PIN_POT_BLINK);
+	pot_power = new icecave::arduino::MCP4XXX(PIN_POT_POWER);
+
 	IRReceiver.enableIRIn(); // Start the receiver
 	IRReceiver.blink13(true);
 	IRDecoder.UseExtnBuf(Buffer);
@@ -57,5 +68,11 @@ void loop() {
 		IRReceiver.resume();
 		IRDecoder.decode();
 		translate_ir(IRDecoder.value);
+	}
+
+	for (int i=0; i<=128; i++) {
+		pot_power->set(i);
+		pot_blink->set(i);
+		delay(25);
 	}
 }
