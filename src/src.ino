@@ -17,15 +17,15 @@ limitations under the License.
 #include <mcp4xxx.h>
 
 #define DEBUG       false
-#define PIN_LED     12
 #define PIN_POT_POWER 11
 #define PIN_POT_BLINK 10
-#define CORE_LED0_PIN 12
 #define PIN_IR_RECV 9
 #define IR_REPEAT_DELAY_MS 300
 
 icecave::arduino::MCP4XXX* pot_power;
 icecave::arduino::MCP4XXX* pot_blink;
+
+int brightness = 128; // Default to max brightness; this will be reset later
 
 #include <IRLib.h>
 

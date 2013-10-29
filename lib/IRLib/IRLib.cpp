@@ -29,7 +29,12 @@
 #include "IRLib.h"
 #include "IRLibMatch.h"
 #include <Arduino.h>
+#include <mcp4xxx.h>
 
+// Pot that controls blinking LED brightness
+extern icecave::arduino::MCP4XXX* pot_blink;
+// Brightness level
+extern int brightness;
 
 /*
  * Returns a pointer to a flash stored string that is the name of the protocol received. 
@@ -722,8 +727,6 @@ void IRrecv::enableIRIn() {
 void IRrecv::blink13(int blinkflag)
 {
   irparams.blinkflag = blinkflag;
-  if (blinkflag)
-     pinMode(BLINKLED, OUTPUT);
 }
 void IRrecv::resume() {
   irparams.rcvstate = STATE_IDLE;
@@ -806,10 +809,10 @@ ISR(TIMER_INTR_NAME)
   }
   if (irparams.blinkflag) {
     if (irdata == IR_MARK) {
-      BLINKLED_ON();  // turn pin 13 LED on
+      pot_blink->set(brightness); // Set the LED to the previous brightness level
     } 
     else {
-      BLINKLED_OFF();  // turn pin 13 LED off
+      pot_blink->set(0); // Turn off the LED
     }
   }
 }
