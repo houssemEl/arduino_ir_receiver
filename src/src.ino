@@ -28,9 +28,6 @@ icecave::arduino::MCP4XXX* pot_power;
 icecave::arduino::MCP4XXX* pot_blink;
 
 #include <IRLib.h>
-#if defined(DEBUG) && DEBUG == true
-#include <IRLibTimer.h>
-#endif
 
 #include "HauppaugeWinTV32.h"
 
@@ -55,11 +52,6 @@ void setup() {
 	IRDecoder.UseExtnBuf(Buffer);
 
 	Keyboard.begin();
-	
-	#if defined(DEBUG) && DEBUG == true
-		Serial.print("Blink LED Value: ");
-	#endif
-	Serial.println(BLINKLED);
 }
 
 void loop() {
@@ -68,11 +60,5 @@ void loop() {
 		IRReceiver.resume();
 		IRDecoder.decode();
 		translate_ir(IRDecoder.value);
-	}
-
-	for (int i=0; i<=128; i++) {
-		pot_power->set(i);
-		pot_blink->set(i);
-		delay(25);
 	}
 }
