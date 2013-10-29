@@ -16,16 +16,18 @@ limitations under the License.
 #include <SPI.h>
 #include <mcp4xxx.h>
 
-#define DEBUG       false
-#define PIN_POT_POWER 11
-#define PIN_POT_BLINK 10
-#define PIN_IR_RECV 9
+#define DEBUG              false
+#define PIN_POT_POWER      11
+#define PIN_POT_BLINK      10
+#define PIN_IR_RECV        9
+#define PIN_PHOTOCELL      0
 #define IR_REPEAT_DELAY_MS 300
 
 icecave::arduino::MCP4XXX* pot_power;
 icecave::arduino::MCP4XXX* pot_blink;
 
 int brightness = 128; // Default to max brightness; this will be reset later
+int photocellReading;
 
 #include <IRLib.h>
 
@@ -55,10 +57,17 @@ void setup() {
 }
 
 void loop() {
+	// Decode an IR event
 	if (IRReceiver.GetResults(&IRDecoder)) {
 		delay(IR_REPEAT_DELAY_MS); // Make sure we don't get excess codes thanks to the Logitech Harmony sending groups of 3 for most protocols
 		IRReceiver.resume();
 		IRDecoder.decode();
 		translate_ir(IRDecoder.value);
 	}
+
+	// Figure out current brightness of environment and set the LED brightness
+	photocellReading = analogRead(PIN_PHOTOCELL);
+	brightness = map(photocellReading, 0, 1023, 0, 128); // Map analog read range of 1023 to pot's 128 range
+	pot_blink->set(brightness);
+	pot_power->set(brightness);
 }
