@@ -16,18 +16,20 @@ limitations under the License.
 #include <SPI.h>
 #include <mcp4xxx.h>
 
-#define DEBUG              false
-#define PIN_POT_POWER      11
-#define PIN_POT_BLINK      10
-#define PIN_IR_RECV        9
-#define PIN_PHOTOCELL      0
-#define IR_REPEAT_DELAY_MS 300
+#define DEBUG               false
+#define PIN_POWER_POT_BLINK 12
+#define PIN_POT_POWER       11
+#define PIN_POT_BLINK       10
+#define PIN_IR_RECV         9
+#define PIN_PHOTOCELL       0
+#define IR_REPEAT_DELAY_MS  300
 
 icecave::arduino::MCP4XXX* pot_power;
 icecave::arduino::MCP4XXX* pot_blink;
 
 int brightness = 128; // Default to max brightness; this will be reset later
 int photocellReading;
+int pin_power_pot_blink = PIN_POWER_POT_BLINK;
 
 #include <IRLib.h>
 
@@ -45,6 +47,9 @@ void setup() {
 		Serial.begin(57600);
 		while (!Serial);
 	#endif
+
+	pinMode(pin_power_pot_blink, OUTPUT);
+	digitalWrite(pin_power_pot_blink, LOW);
 
 	pot_blink = new icecave::arduino::MCP4XXX(PIN_POT_BLINK);
 	pot_power = new icecave::arduino::MCP4XXX(PIN_POT_POWER);
@@ -67,7 +72,7 @@ void loop() {
 
 	// Figure out current brightness of environment and set the LED brightness
 	photocellReading = analogRead(PIN_PHOTOCELL);
-	brightness = map(photocellReading, 0, 1023, 0, 128); // Map analog read range of 1023 to pot's 128 range
+	brightness = map(photocellReading, 0, 1023, 50, 128); // Map analog read range of 1023 to pot's 128 range; 50 is the minimum pot value that produces a visible result
 	pot_blink->set(brightness);
 	pot_power->set(brightness);
 }

@@ -29,12 +29,8 @@
 #include "IRLib.h"
 #include "IRLibMatch.h"
 #include <Arduino.h>
-#include <mcp4xxx.h>
 
-// Pot that controls blinking LED brightness
-extern icecave::arduino::MCP4XXX* pot_blink;
-// Brightness level
-extern int brightness;
+extern int pin_power_pot_blink;
 
 /*
  * Returns a pointer to a flash stored string that is the name of the protocol received. 
@@ -809,10 +805,10 @@ ISR(TIMER_INTR_NAME)
   }
   if (irparams.blinkflag) {
     if (irdata == IR_MARK) {
-      pot_blink->set(brightness); // Set the LED to the previous brightness level
+      digitalWrite(pin_power_pot_blink, HIGH);
     } 
     else {
-      pot_blink->set(0); // Turn off the LED
+      digitalWrite(pin_power_pot_blink, LOW);
     }
   }
 }
