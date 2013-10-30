@@ -9,6 +9,10 @@ Currently a Harmony Remote 650 programmed with an RC5 compatible IR code set is 
 
 The project is a work in progress so some things may not work 100%.
 
+Prototype
+=========
+![XBMC IR Receiver Prototype](https://raw.github.com/mcrosson/arduino_ir_receiver/master/Pictures/Prototype_3.jpg)
+
 Remote Programming
 -
 The `remote_setup.txt` file includes information on how to program a Harmony Remote for the code sets in use by the IR receiver.
